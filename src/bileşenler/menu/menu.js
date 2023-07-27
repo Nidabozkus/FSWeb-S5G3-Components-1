@@ -10,6 +10,14 @@ let menuElemanlari = [
   "Diğer",
 ];
 
+const menuYapici = (menuArray) => {
+  const menuItems = `<div class="menu">
+<ul>
+  {tüm menü elemanları <li> içlerine}
+</ul>
+</div>`;
+};
+menuYapici(menuElemanlari);
 /*
   Adım 1: Aşağıdaki etiketler gibi bir menü oluşturmak için 'menuYapici' adlı bir bileşen yazın:
 

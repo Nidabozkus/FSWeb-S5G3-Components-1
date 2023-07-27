@@ -89,22 +89,70 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
   },
 ];
+/*const haberYapici = (haberler) => {
+  const articleContainer = document.querySelector(".articles");
+  haberler.forEach((haber) => {
+    const articleDiv = document.createElement("div");
+    articleDiv.classList.add("article");
 
+    const articleH2 = document.createElement("h2");
+    articleH2.textContent = haber.baslik;
+
+    const articleP = document.createElement("p");
+    articleP.classList.add("tarih");
+    articleP.textContent = haber.tarih;
+
+    const p1 = document.createElement("p");
+    p1.textContent = haber;
+    const p2 = document.createElement("p");
+    p2.textContent = haber;
+    const p3 = document.createElement("p");
+    p3.textContent = haber;
+
+    const btn = document.createElement("button");
+    btn.classList.add("expandButton");
+
+    articleDiv.append(articleH2, articleP, p1, p2, p3, btn);
+    articleContainer.innerHTML = articleDiv;
+  });
+  const btn1= document.querySelector("expandButton");
+  btn1.addEventListener("click");
+};
+
+haberYapici(data);*/
+const haberYapici = (haberler) => {
+  const articleContainer = document.querySelector(".articles");
+  haberler.forEach((haber) => {
+    const articleItems = `<div class="article">
+      <h2>${haber.baslik}</h2>
+      <p class="tarih">${haber.tarih}</p>
+      <p>${haber.ilkParagraf} </p>
+      <p>${haber.ikinciParagraf} </p>
+      <p>${haber.ucuncuParagraf} </p>
+      <button class="expandButton">+</button>
+    </div>`;
+    articleContainer.innerHTML += articleItems;
+  });
+  const btn1 = document.querySelector(".expandButton");
+  const article = document.querySelector(".articles");
+  btn1.addEventListener("click", () => btn1.classList.toggle("article-open"));
+};
+haberYapici(data);
 /*
   Adım 1: Haber oluşturmak için 'haberYapici' adında bir bileşen(component) oluşturun.
   Bileşeniniz, argümanı haberleri içeren dizi olarak alan bir fonksiyon olacak,
-  ve aşağıdaki gibi görünen bir DOM düğümü döndürecek:
+  ve aşağıdaki gibi görünen bir DOM düğümü döndürecek:*/
 
-  <div class="article">
+/*<div class="article">
     <h2>{haber başlığı}</h2>
     <p class="tarih">{haber tarihi}</p>
 
     {üç ayrı paragraf elementi}
 
     <button class="expandButton">+</button>
-  </div>
+  </div>*/
 
-  Adım 2: Hala `haberYapici` içindeyiz, button.expandButton 'a bir click event dinleyici ekleyin.
+/*Adım 2: Hala `haberYapici` içindeyiz, button.expandButton 'a bir click event dinleyici ekleyin.
   Bu dinleyici div.article öğesine 'article-open' class'ını ekleyip/çıkaracak (toogle).
 
   Adım 3: Fonksiyonunuzdan bir öğe döndürmeyi unutmayın.
